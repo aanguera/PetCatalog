@@ -20,14 +20,14 @@
 			echo "DB connection OK<br>";	
 			echo 'Connected successfully<br />';
 			$dbquery = "CREATE TABLE Pet6(
-	  petID INT(5) NOT NULL AUTO_INCREMENT UNIQUE,
-	  petName CHAR(25) NOT NULL,
-	  petType CHAR(15) NOT NULL DEFAULT \"Prova\",
-	  petDescription VARCHAR(255),
-	  price DECIMAL(9,2),
-	  pix CHAR(15) NOT NULL,
-	  PRIMARY KEY(petID)
-	)";
+			petID INT(5) NOT NULL AUTO_INCREMENT UNIQUE,
+	  		petName CHAR(25) NOT NULL,
+	  		petType CHAR(15) NOT NULL DEFAULT \"Prova\",
+	  		petDescription VARCHAR(255),
+	  		price DECIMAL(9,2),
+	  		pix CHAR(15) NOT NULL,
+	  		PRIMARY KEY(petID)
+			)";
 			echo $dbquery;
 			mysql_select_db( 'PetCatalog' );
 			$retval = mysql_query( $dbquery, $dbConnected );
