@@ -35,6 +35,20 @@
 				{
 				  die('Could not create table: ' . mysql_error());
 				}
+			// Create the second table PetType
+			$dbquery = "CREATE TABLE PetType(
+			petType CHAR(15) NOT NULL,
+	  		typeDescription VARCHAR(255),
+	  		PRIMARY KEY(petType)
+			)";
+			echo $dbquery;
+			mysql_select_db( 'PetCatalog' );
+			$retval = mysql_query( $dbquery, $dbConnected );
+			if(! $retval )
+				{
+				  die('Could not create table: ' . mysql_error());
+				}
+			//Ending creating tables
 			echo "Table created successfully\n";
 			mysql_close($dbConnected);	
 		} else {
