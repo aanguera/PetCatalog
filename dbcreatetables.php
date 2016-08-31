@@ -6,11 +6,7 @@
    <body>
 <?php
 
-	$hostname = "localhost";
-	$username = "petcatalog";
-	$password = "password";
-	$databaseName = "PetCatalog";
-
+	include 'config.php';
 	$dbConnected = mysql_connect($hostname, $username, $password);
 	$dbSelected = mysql_select_db($databaseName, $dbConnected);
 
@@ -63,7 +59,7 @@
 				  die('Could not create table: ' . mysql_error());
 				}	
 			//Ending creating tables
-			echo "Table created successfully\n";
+			echo "Tables created successfully\n";
 			mysql_close($dbConnected);	
 		} else {
 			echo "DB connection FAILED<br>";	
