@@ -19,7 +19,7 @@
 		if ($dbSelected) {
 			echo "DB connection OK<br>";	
 			echo 'Connected successfully<br />';
-			$dbquery = "CREATE TABLE Pet6(
+			$dbquery = "CREATE TABLE Pet(
 			petID INT(5) NOT NULL AUTO_INCREMENT UNIQUE,
 	  		petName CHAR(25) NOT NULL,
 	  		petType CHAR(15) NOT NULL DEFAULT \"Prova\",
@@ -35,7 +35,7 @@
 				{
 				  die('Could not create table: ' . mysql_error());
 				}
-			// Create the second table PetType
+			// Create the second table, PetType
 			$dbquery = "CREATE TABLE PetType(
 			petType CHAR(15) NOT NULL,
 	  		typeDescription VARCHAR(255),
@@ -48,6 +48,20 @@
 				{
 				  die('Could not create table: ' . mysql_error());
 				}
+			// Create the third table, Color
+			$dbquery = "CREATE TABLE Color(
+			petName CHAR(25) NOT NULL,
+			petColor CHAR(15) NOT NULL,
+	  		pix CHAR(15) NOT NULL DEFAULT \"na.png\",
+	  		PRIMARY KEY(petName,petColor)
+			)";
+			echo $dbquery;
+			mysql_select_db( 'PetCatalog' );
+			$retval = mysql_query( $dbquery, $dbConnected );
+			if(! $retval )
+				{
+				  die('Could not create table: ' . mysql_error());
+				}	
 			//Ending creating tables
 			echo "Table created successfully\n";
 			mysql_close($dbConnected);	
